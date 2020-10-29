@@ -173,11 +173,9 @@ class ViewController: UIViewController, EKEventEditViewDelegate, MKMapViewDelega
         eventVC.editViewDelegate = self
         eventVC.eventStore = EKEventStore()
         
-        let event = EKEvent(eventStore: eventVC.eventStore)
-        event.title = "Transfer Tropeluc some money!"
-        event.startDate = Date()
-
-        eventVC.event = event
+        let predicate = eventVC.eventStore.predicateForEvents(withStart: Date(), end: Date.distantFuture, calendars: nil)
+        let events = eventVC.eventStore.events(matching: predicate)
+        eventVC.event = events[0]
         
         self.present(eventVC, animated: true)
     }
