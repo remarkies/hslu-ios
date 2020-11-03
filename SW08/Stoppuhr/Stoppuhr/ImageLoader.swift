@@ -7,7 +7,7 @@
 
 import SwiftUI
 
-final class ImageLoader: View, ObservableObject {
+final class ImageLoader: ObservableObject {
     
     @Published var image: UIImage?
     
@@ -26,15 +26,5 @@ final class ImageLoader: View, ObservableObject {
             }
         })
         task.resume()
-    }
-    
-    var body: some View {
-        Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
-    }
-}
-
-struct ImageLoader_Previews: PreviewProvider {
-    static var previews: some View {
-        ImageLoader()
     }
 }
